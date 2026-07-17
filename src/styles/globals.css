@@ -31,6 +31,7 @@ body {
   color: var(--text-main);
   font-family: Montserrat, Inter, Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-rendering: geometricPrecision;
+  cursor: url("data:image/svg+xml;utf8,<svg width='28' height='28' viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'><path d='M6 6 L22 12 L14 15 L10 23 Z' fill='%23000' stroke='%2300f0ff' stroke-width='2' stroke-linejoin='round'/><circle cx='6' cy='6' r='2' fill='%2300f0ff'/></svg>") 6 6, auto;
 }
 
 body::before {
@@ -56,10 +57,14 @@ textarea {
 
 button {
   max-width: 100%;
-  cursor: pointer;
+  cursor: url("data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='16' cy='16' r='10' fill='none' stroke='%2300f0ff' stroke-width='2' stroke-dasharray='4 4' /><circle cx='16' cy='16' r='3' fill='%23ff0055' /><line x1='16' y1='2' x2='16' y2='6' stroke='%2300f0ff' stroke-width='2' /><line x1='16' y1='26' x2='16' y2='30' stroke='%2300f0ff' stroke-width='2' /><line x1='2' y1='16' x2='6' y2='16' stroke='%2300f0ff' stroke-width='2' /><line x1='26' y1='16' x2='30' y2='16' stroke='%2300f0ff' stroke-width='2' /></svg>") 16 16, pointer;
   hyphens: none;
   overflow-wrap: normal;
   word-break: normal;
+}
+
+a, [role="button"], input[type="submit"] {
+  cursor: url("data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><circle cx='16' cy='16' r='10' fill='none' stroke='%2300f0ff' stroke-width='2' stroke-dasharray='4 4' /><circle cx='16' cy='16' r='3' fill='%23ff0055' /><line x1='16' y1='2' x2='16' y2='6' stroke='%2300f0ff' stroke-width='2' /><line x1='16' y1='26' x2='16' y2='30' stroke='%2300f0ff' stroke-width='2' /><line x1='2' y1='16' x2='6' y2='16' stroke='%2300f0ff' stroke-width='2' /><line x1='26' y1='16' x2='30' y2='16' stroke='%2300f0ff' stroke-width='2' /></svg>") 16 16, pointer;
 }
 
 img,

@@ -81,13 +81,7 @@ export function PopularBuildsCarousel() {
   };
 
   if (loading || topProducts.length === 0) {
-    return (
-      <section className={styles.carouselContainer} style={{ background: '#050505' }}>
-        <div className={styles.carouselInner}>
-           {/* loading state could be here */}
-        </div>
-      </section>
-    );
+    return null;
   }
 
   return (

@@ -6,6 +6,7 @@ import { getCatalogFallbackImage, resolveCatalogProductImage } from '../../lib/c
 import { getBudgetLabel, getProductKey, getProductSlug, rankCatalogProducts, toProductView } from '../../lib/products';
 import type { ProductView } from '../../lib/products';
 import { calculateFps, getTierLabel, parseGpuProfile } from '../../lib/performance';
+import { Copy, Send } from 'lucide-react';
 import amdLogo from '../../assets/amd-logo.svg';
 import intelLogo from '../../assets/intel-logo.svg';
 import gsap from 'gsap';
@@ -466,27 +467,62 @@ export function ProductCatalog() {
             <pre className="premium-checkout-text">{buildOrderText(checkoutProduct)}</pre>
 
             <div className="premium-checkout-actions">
-              <button type="button" className="premium-btn ghost" onClick={copyCheckoutText}>
-                {checkoutCopyState === 'copied' ? '✓ Скопировано' : 'Скопировать'}
+              <button type="button" className="premium-btn ghost btn-copy" onClick={copyCheckoutText}>
+                <Copy size={18} />
+                {checkoutCopyState === 'copied' ? '✓ Скопировано' : 'Скопировать заявку'}
               </button>
-              <a
-                className="premium-btn solid"
-                href={contacts.avito}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => trackEvent('product_cta_click', { productId: checkoutProduct.sourceId, channel: 'avito', placement: 'checkout_modal' })}
-              >
-                Отправить в Avito
-              </a>
-              <a
-                className="premium-btn solid"
-                href={`${contacts.vk}?message=${buildContactMessage(buildOrderText(checkoutProduct))}`}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => trackEvent('product_cta_click', { productId: checkoutProduct.sourceId, channel: 'vk', placement: 'checkout_modal' })}
-              >
-                Отправить в VK
-              </a>
+              
+              <div className="checkout-social-grid">
+                <a
+                  className="premium-btn solid btn-tg"
+                  href={contacts.telegram}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent('product_cta_click', { productId: checkoutProduct.sourceId, channel: 'telegram', placement: 'checkout_modal' })}
+                >
+                  <Send size={18} />
+                  Telegram
+                </a>
+                <a
+                  className="premium-btn solid btn-vk"
+                  href={`${contacts.vk}?message=${buildContactMessage(buildOrderText(checkoutProduct))}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent('product_cta_click', { productId: checkoutProduct.sourceId, channel: 'vk', placement: 'checkout_modal' })}
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22.06 13.9c.53.53 1.1 1.05 1.58 1.62.4.47.76 1 1.09 1.53.37.6.21 1.09-.47 1.11H19.7c-1.02-.03-1.8-.45-2.37-1.23-.33-.46-.72-.88-1.08-1.32-.14-.17-.28-.35-.45-.49-.44-.36-.83-.3-1.12.22-.38.68-.45 1.41-.48 2.14-.02.48-.17.65-.65.68-1.85.12-3.56-.23-5.06-1.28-1.63-1.13-2.87-2.61-3.9-4.27-1.63-2.64-2.86-5.46-3.8-8.4-.18-.55.03-.78.58-.79h4.31c.48 0 .74.22.88.69.66 2.05 1.53 3.99 2.68 5.78.29.45.61.88.99 1.25.32.32.61.27.75-.17.11-.35.16-.71.18-1.08.05-1.51-.01-3.03-.52-4.48-.15-.43-.02-.75.43-.88.35-.1.72-.11 1.09-.11h2.72c.49.07.61.28.69.75.14 1 .1 2.01.1 3.02 0 .5.08.99.3 1.45.18.36.46.43.76.2.22-.17.43-.37.6-.58 1.15-1.47 1.98-3.13 2.59-4.88.16-.46.4-.64.88-.63h4.63c.27 0 .54 0 .78.07.41.11.49.33.37.74-.29 1.01-.76 1.95-1.28 2.87-1 1.76-2.14 3.42-3.47 4.96-.3.34-.33.56-.05.9 0 0 .01.01.01.01z"/></svg>
+                  ВКонтакте
+                </a>
+                <a
+                  className="premium-btn solid btn-ig"
+                  href={contacts.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent('product_cta_click', { productId: checkoutProduct.sourceId, channel: 'instagram', placement: 'checkout_modal' })}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                  Instagram
+                </a>
+                <a
+                  className="premium-btn solid btn-avito"
+                  href={contacts.avito}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent('product_cta_click', { productId: checkoutProduct.sourceId, channel: 'avito', placement: 'checkout_modal' })}
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <circle cx="7" cy="7" r="3.5" fill="#00AAFF"/>
+                    <circle cx="17" cy="7" r="3.5" fill="#84C236"/>
+                    <circle cx="7" cy="17" r="3.5" fill="#FF4D4D"/>
+                    <circle cx="17" cy="17" r="3.5" fill="#9D4BC6"/>
+                  </svg>
+                  Авито
+                </a>
+              </div>
             </div>
           </div>
         </div>

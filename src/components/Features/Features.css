@@ -164,7 +164,7 @@
 .bento-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* very subtle default border */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* brighter default border */
 }
 
 .border-beam {
@@ -194,12 +194,12 @@
   mask-composite: exclude;
   padding: 2px;
   animation: beam-spin 8s linear infinite;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  opacity: 1;
+  transition: opacity 0.5s ease, filter 0.5s ease;
 }
 
 .bento-card:hover .border-beam::before {
-  opacity: 1;
+  filter: brightness(1.5);
 }
 
 @keyframes beam-spin {
