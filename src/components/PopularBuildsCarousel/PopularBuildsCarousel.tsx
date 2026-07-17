@@ -169,10 +169,10 @@ export function PopularBuildsCarousel() {
               return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(price);
             };
 
-            const imageUrl = resolveCatalogProductImage(product.image, product.priceValue, product.id || product.title);
+            const imageUrl = resolveCatalogProductImage(product.image, product.priceValue, (product as any).id || product.title);
 
             return (
-              <div key={product.id || index} className={styles.carouselCardWrapper} style={roleStyles}>
+              <div key={(product as any).id || index} className={styles.carouselCardWrapper} style={roleStyles}>
                 <div className={styles.carouselCard}>
                   <div className={styles.cardImageWrapper}>
                     <img src={imageUrl} alt={`Игровой ПК ${product.title} сборка Великий Новгород`} draggable={false} loading="lazy" decoding="async" />

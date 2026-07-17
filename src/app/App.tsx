@@ -23,6 +23,7 @@ import { CatalogSeoPage } from '../pages/CatalogSeoPage/CatalogSeoPage';
 import { ProductSeoPage } from '../pages/ProductSeoPage/ProductSeoPage';
 import { LocalSeoPage } from '../pages/LocalSeoPage/LocalSeoPage';
 import { ArticlePage } from '../pages/ArticlePage/ArticlePage';
+import { BlogPage } from '../pages/BlogPage/BlogPage';
 import { categorySeoPages, getHomeJsonLd, getLocalPageJsonLd, seoPages, type CategorySlug } from '../data/seo';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useProducts } from '../hooks/useProducts';
