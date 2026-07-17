@@ -1,0 +1,68 @@
+.hero-sequence {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-text-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none; /* Let pointer events pass through to canvas if needed, or re-enable on buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text-panel {
+  position: absolute;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto; /* Enable clicks on buttons inside panels */
+}
+
+.hidden-start {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.scroll-indicator {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}

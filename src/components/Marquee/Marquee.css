@@ -1,0 +1,56 @@
+.marquee-section {
+  padding: 12px 0;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-container {
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  /* Add subtle gradient masks at the edges so text fades out */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 4rem;
+  width: max-content;
+  animation: marquee-scroll 20s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.marquee-text:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Since we duplicated the array 3 times, we need to shift by exactly 1/3 of the total width to loop perfectly */
+    transform: translateX(calc(-100% / 3));
+  }
+}

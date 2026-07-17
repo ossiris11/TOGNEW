@@ -1,0 +1,76 @@
+/*
+  PREMIUM ORDER PROCESS
+  Palette: OKLCH
+*/
+
+.premium-process-section {
+  background-color: transparent;
+  color: oklch(0.98 0 0);
+  padding: 100px 0;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid oklch(0.18 0 0);
+}
+
+.premium-process-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.premium-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.premium-step-card {
+  position: relative;
+  background: oklch(0.12 0 0);
+  border: 1px solid oklch(0.22 0 0);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: all 0.4s ease;
+}
+
+.premium-step-card:hover {
+  background: oklch(0.16 0 0);
+  border-color: oklch(0.40 0 0);
+  transform: translateY(-4px);
+}
+
+.step-number {
+  font-family: 'JetBrains Mono', 'Space Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: oklch(0.12 0 0);
+  background: oklch(0.98 0 0);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.premium-step-card:hover .step-number {
+  background: oklch(0.70 0.15 100);
+  color: oklch(0.98 0 0);
+  box-shadow: 0 0 20px oklch(0.70 0.15 100 / 0.4);
+}
+
+.step-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: oklch(0.98 0 0);
+  margin: 0 0 12px;
+}
+
+.step-content p {
+  color: oklch(0.70 0 0);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}

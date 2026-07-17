@@ -1,0 +1,49 @@
+.sticky-cta-container {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+}
+
+.sticky-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--blue-primary);
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(0, 100, 224, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.sticky-cta-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .sticky-cta-container {
+    display: block;
+    animation: slideUp 0.5s ease-out 2s both;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 150%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

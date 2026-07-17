@@ -1,0 +1,26 @@
+.global-particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.global-ambient-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    ellipse at 50% -20%,
+    rgba(31, 107, 255, 0.25) 0%,
+    rgba(106, 53, 255, 0.08) 50%,
+    transparent 100%
+  );
+  z-index: -2;
+  pointer-events: none;
+}

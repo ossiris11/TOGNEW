@@ -1,0 +1,111 @@
+/*
+  PREMIUM FAQ
+  Palette: OKLCH
+*/
+
+.premium-faq-section {
+  position: relative;
+  background-color: transparent;
+  color: oklch(0.98 0 0);
+  padding: 100px 0;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid oklch(0.18 0 0);
+}
+
+.premium-faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 64px;
+}
+
+.premium-faq-header {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.premium-faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.premium-faq-item {
+  border-bottom: 1px solid oklch(0.22 0 0);
+  padding: 24px 0;
+}
+
+.premium-faq-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: oklch(0.98 0 0);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.3s ease;
+}
+
+.premium-faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.premium-faq-summary:hover {
+  color: oklch(0.70 0.15 280); /* Cyan accent */
+}
+
+.premium-faq-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.premium-faq-icon::before,
+.premium-faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-faq-icon::before {
+  width: 16px;
+  height: 2px;
+}
+
+.premium-faq-icon::after {
+  width: 2px;
+  height: 16px;
+}
+
+details[open] .premium-faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+details[open] .premium-faq-icon::before {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.premium-faq-content {
+  padding-top: 16px;
+  color: oklch(0.70 0 0);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .premium-faq-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .premium-faq-header {
+    position: static;
+  }
+}

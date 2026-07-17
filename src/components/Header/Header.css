@@ -1,0 +1,266 @@
+/* PREMIUM FLUID ISLAND HEADER */
+.header {
+  position: fixed;
+  top: 24px;
+  right: 0;
+  left: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+.headerInner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  min-height: 64px;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 36px);
+  padding: 0 24px;
+  
+  /* Island Design */
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  pointer-events: auto; /* Re-enable clicks */
+  
+  transition: all 0.4s var(--ease-premium);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.header.isScrolled .headerInner {
+  background: rgba(5, 5, 5, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-8px) scale(0.98);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  width: 160px;
+  min-width: 160px;
+  height: 36px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.brand:hover {
+  transform: scale(1.02);
+}
+
+.header-brand-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.1));
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 1.5vw, 24px);
+}
+
+.desktopNav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--text-muted);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-premium);
+  position: relative;
+}
+
+.desktopNav a::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-main);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-premium);
+  transform-origin: center;
+}
+
+.desktopNav a:hover {
+  color: var(--text-main);
+}
+
+.desktopNav a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerSocials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socialIcon {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-premium);
+}
+
+.socialIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.socialIcon:hover,
+.socialIcon:focus-visible {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+.headerButton {
+  flex-shrink: 0;
+  min-height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+  transition: all 0.3s var(--ease-premium);
+}
+
+.headerButton::after {
+  content: "→";
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.headerButton:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.05);
+}
+
+.menuButton {
+  display: none;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .header {
+    top: 16px;
+    padding: 0 16px;
+  }
+
+  .headerInner {
+    width: 100%;
+    grid-template-columns: auto 1fr auto;
+    padding: 0 16px 0 20px;
+  }
+
+  .desktopNav,
+  .headerActions {
+    display: none;
+  }
+
+  .menuButton {
+    display: grid;
+    align-self: center;
+    justify-self: end;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+  }
+
+  .menuButton::after {
+    content: "≡";
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .menuButton[aria-expanded="true"]::after {
+    content: "×";
+    font-size: 28px;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 190;
+    padding-top: 100px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.4s var(--ease-premium);
+  }
+
+  .mobileMenu.isOpen {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobileMenuInner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .mobileMenuInner a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 12px 0;
+  }
+}
